@@ -1,24 +1,28 @@
-import logo from './logo.svg';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import Header from './components/others/Header'
+import Home from './components/pages/Home'
+import Coinpage from './components/pages/Coinpage';
+import Context from './Context'
+import { useState, useLayoutEffect } from 'react';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  const [currency,setCurrency] = useState('INR');
+  const [symbol,setSymbol] = useState('₹');
+  useLayoutEffect(()=>
+  {
+    currency==='INR'?setSymbol('₹'):setSymbol('$');
+  },[currency])
+  return (    
+    <Context.Provider value={{currency,setCurrency,symbol}}>
+      <div className='app'>
+    <Header/>
+      <Routes>
+        <Route  exact path='/' element={<Home/>} />
+        <Route  path='coin/:id' element={<Coinpage/>}/>
+      </Routes>
     </div>
+    </Context.Provider>
   );
 }
 
