@@ -44,20 +44,6 @@ a
   font-size: 170%;
 }
 
-fieldset
-{
-  border-color: rgba(255, 255, 255, 0.699) !important;
-}
-
-.css-hfutr2-MuiSvgIcon-root-MuiSelect-icon
-{
-  color: var(--primaryColor) !important;
-}
-
-.css-bpeome-MuiSvgIcon-root-MuiSelect-icon
-{
-  color: var(--primaryColor) !important;
-}
 
 /* style for banner section */
 .banner 

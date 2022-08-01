@@ -11,12 +11,10 @@ export default function Header()
 {
    const {currency,setCurrency,symbol} = useContext(Context)
    const darkTheme = createTheme({
-    palette:
-    {
-    primary:{main:"#fff"},
-    type:"dark"
+    palette: {
+      mode: 'dark',
     },
-    })
+  });
     return(
         <ThemeProvider theme={darkTheme}>
         <AppBar color = 'transparent' position='static'>
