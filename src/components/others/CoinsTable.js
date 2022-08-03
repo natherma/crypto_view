@@ -58,7 +58,7 @@ function CoinsTable() {
                         ["Coins","Price","24hr Change","Market Cap"].map((element)=>
                           {
                             return (
-                              <TableCell style={{color:"#15202B",fontWeight:"700",fontFamily:"poppins"}} key={element} align={element==="Coins"?"":"right"}>
+                              <TableCell style={{color:"#15202B",fontWeight:"700",fontFamily:"poppins"}} key={element} align={element==="Coins"?"inherit":"right"}>
                               {element}
                             </TableCell>
                             )
@@ -95,7 +95,7 @@ function CoinsTable() {
                           </TableCell>
                           <TableCell align="right" style={{fontSize:"1.1rem"}}>
                             {symbol}
-                            {numberWithCommas(item.market_cap)}
+                            {numberWithCommas(item.market_cap.toString().slice(0,-6))}M
                           </TableCell>
                         </TableRow>
                       )
