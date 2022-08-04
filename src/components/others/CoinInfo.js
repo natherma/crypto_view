@@ -109,6 +109,7 @@ function CoinInfo(props) {
                   key={day.value}
                   onClick={() => {setDays(day.value);
                     setflag(false);
+                    console.log(day.value)
                   }}
                   selected={day.value === days}
                 >

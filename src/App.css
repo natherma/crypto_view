@@ -150,17 +150,19 @@ a
   width: 22%;
 }
 
-.selectbutton:nth-child(3)
+.selectbutton:nth-child(1)
 {
-  cursor: none;
-  pointer-events: none;
+  cursor: pointer;
+  pointer-events: all;
   background-color: var(--cardColor);
+  display: block;
 }
-.selectbutton:nth-child(4)
+.selectbutton
 {
   cursor: none;
   pointer-events: none;
   background-color: var(--cardColor);
+  display: none;
 }
 
 
