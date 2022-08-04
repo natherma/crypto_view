@@ -1,6 +1,5 @@
 import React from 'react'
 import {useContext,useState,useEffect} from 'react'
-import { useParams } from 'react-router-dom'
 import Context from '../../Context'
 import {HistoricalChart} from '../../config/api'
 import axios from 'axios'
@@ -16,11 +15,10 @@ ChartJS.register(LineElement, PointElement, LinearScale, Title, CategoryScale);
 function CoinInfo(props) {
   const {coin} = props
   const [historicalData,setHistoricalData]=useState();
-  const {currency,symbol} = useContext(Context);
+  const {currency} = useContext(Context);
   const [days,setDays] = useState(1);
-  const {id} = useParams()
   const [flag,setflag] = useState(false);
-  const fetchData = async()=>
+  const fetchData = async(coin,days,currency)=>
   {
     const {data} = await axios.get(HistoricalChart(coin.id,days,currency))
     setHistoricalData(data.prices)
@@ -32,8 +30,8 @@ function CoinInfo(props) {
   });
   useEffect(()=>
   {
-    fetchData()
-  },[])
+    fetchData(coin,days,currency)
+  },[coin,currency,days])
   return (
     <ThemeProvider theme={darkTheme}>
       <div className='container2'>
@@ -109,7 +107,6 @@ function CoinInfo(props) {
                   key={day.value}
                   onClick={() => {setDays(day.value);
                     setflag(false);
-                    console.log(day.value)
                   }}
                   selected={day.value === days}
                 >

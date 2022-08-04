@@ -9,7 +9,7 @@ import Context from '../../Context'
 
 export default function Header()
 {
-   const {currency,setCurrency,symbol} = useContext(Context)
+   const {currency,setCurrency} = useContext(Context)
    const darkTheme = createTheme({
     palette: {
       mode: 'dark',
